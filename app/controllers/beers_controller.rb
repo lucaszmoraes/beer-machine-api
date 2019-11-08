@@ -1,21 +1,9 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :update, :destroy]
 
-  def serve_breja
-
-    #byebug
-
-    @breja = MenuService.new(1).serve
-    byebug
-    @breja_escolhida = Beer.find(@breja)
-    render json: @breja_escolhida
-
-  end 
- 
   # GET /beers
   def index
     @beers = Beer.all
-
     render json: @beers
   end
 
