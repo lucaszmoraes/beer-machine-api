@@ -1,4 +1,4 @@
-class BeersController < ApplicationController
+class Api::V1::BeersController < Api::V1::ApiController
   before_action :set_beer, only: [:show, :update, :destroy]
 
   # GET /beers

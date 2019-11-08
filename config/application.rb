@@ -37,5 +37,16 @@ module BeermachineApi
     config.autoload_paths += Dir["#{config.root}/services/**/"]
     config.autoload_paths += %W(#{config.root}/app) # makes no difference whether I specify the file itself, or the whole app directory
 
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*',
+          headers: :any,
+          methods: %i(get post put patch delete options head)
+      end
+    end
+
+    config.middleware.use Rack::Attack
+
   end
 end

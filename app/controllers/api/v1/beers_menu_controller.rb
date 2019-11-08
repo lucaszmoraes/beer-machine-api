@@ -1,7 +1,7 @@
-class BeersMenuController < ApplicationController
+class Api::V1::BeersMenuController < Api::V1::ApiController
 
   # Service que recebe a temperatura do endpoint
-  # calcula a melhor cerveja e a retorna com JSON
+  # e calcula a melhor cerveja e a retorna com JSON
   def best_beer_by_temperature
     given_temperature =  beer_by_temperature_params[:temperature].to_i
     @best_beer_id = BeersMenuService.new(given_temperature).calculates_best_beer_by_temperature
