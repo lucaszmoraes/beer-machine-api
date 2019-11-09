@@ -43,7 +43,6 @@ class BeersMenuService
     end
 
     # retorna o ID da melhor cerveja calculada
-    #@best_beer = Beer.find_by_style(best_beer)
     @best_beer = best_beer
     return @best_beer
   end
