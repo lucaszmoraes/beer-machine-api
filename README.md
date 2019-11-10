@@ -32,5 +32,7 @@ RESTful API construída em Rails 6 e Ruby 2.5.3.
 				
 	- DELETE em localhost:3000/api/v1/beers/:id
 		- destroy a cerveja de ID => id
-			- campos obrigatórios
+			- campos obrigatórios:
 				- id (string)
+
+- Use o Postman para uma interação mais fácil com os endpoint
