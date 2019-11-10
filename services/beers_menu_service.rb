@@ -29,7 +29,7 @@ class BeersMenuService
     end
 
     # calculando as distâncias entre as cervejas próximas da posição "0" e retorna a mais próxima
-    if newhash.keys[@position - 1].present? && newhash.keys[@position + 1].present?
+    if (newhash.keys[@position - 1].present? && newhash.keys[@position + 1].present?)
       antecessor  = newhash.values[@position - 1] - newhash.values[@position]
       sucessor    = newhash.values[@position + 1] - newhash.values[@position]
       if antecessor.abs < sucessor.abs
@@ -39,11 +39,11 @@ class BeersMenuService
       else
       end 
     else
-      best_beer = newhash.keys[@position + 1]
+      best_beer = newhash.keys[@position - 1]
     end
 
     # retorna o ID da melhor cerveja calculada
-    @best_beer = best_beer
+    @best_beer = Beer.find_by_style(best_beer)
     return @best_beer
   end
 

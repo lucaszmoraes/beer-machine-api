@@ -5,7 +5,7 @@ class Api::V1::BeersMenuController < Api::V1::ApiController
   def best_beer_by_temperature
     given_temperature =  beer_by_temperature_params[:temperature].to_i
     @best_beer = BeersMenuService.new(given_temperature).calculates_best_beer_by_temperature
-    render json: @best_beer.to_json
+    render json: @best_beer, only: [:style]
   end
 
   private
