@@ -1,24 +1,38 @@
-# README
+RESTful API construída em Rails 6 e Ruby 2.5.3.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Inicie em http://localhost:2000
 
-Things you may want to cover:
+- Nenhuma autenticação é necessária
 
-* Ruby version
+- Endpoints:
+	- GET em localhost:2000/api/v1/beers
+		- lista todas as Cervejas cadastradas
+	
+	- GET em localhost:3000/api/v1/beers/:id
+		- retorna informações sobre a cerveja de ID => id
+	
+	- POST em localhost:3000/api/v1/beers
+		- cria uma cerveja nova com a hash Beer
+			- campos obrigatórios: 
+				- beer[style] (string)
+				- beer[min_temperature] (integer)
+				- beer[max_temperature] (integer)
+				
+	- POST em localhost:3000/api/v1/beers/:id
+		- atualiza uma cerveja
+			- campos obrigatórios: 
+				- beer[style] (string)
+				- beer[min_temperature] (integer)
+				- beer[max_temperature] (integer)
+	
+	- POST em localhost:2000/api/v1/beers/menu/melhor-cerveja
+		- retorna um JSON com o style da cerveja mais adequada para uma dada temperatura que mais se aproxima das temperaturas máximas e mínimas de consumo de todas as cervejas cadastradas
+			- campos obrigatórios: 
+				- beer[temperature] (integer)
+				
+	- DELETE em localhost:3000/api/v1/beers/:id
+		- destroy a cerveja de ID => id
+			- campos obrigatórios:
+				- id (string)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Use o Postman para uma interação mais fácil com os endpoint
